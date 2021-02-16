@@ -1,16 +1,23 @@
 <template>
   <div id="app">
-    <div
-      :class="['bounding-box', { 'bounding-box--selected': selected }]"
-      @click="selected = !selected"
+    <drag-it-dude
+      @activated="handleActivated"
+      @dragging="handleDragging"
+      @dropped="handleDropped"
     >
-      <e :outline="true" v-if="selected" />
-      <e :outline="false" />
-    </div>
+      <div
+        :class="['bounding-box', { 'bounding-box--selected': selected }]"
+        @click="selected = !selected"
+      >
+        <e :outline="true" v-if="selected" />
+        <e :outline="false" />
+      </div>
+    </drag-it-dude>
   </div>
 </template>
 
 <script>
+import DragItDude from "vue-drag-it-dude";
 import E from "@/components/E";
 
 export default {
@@ -19,7 +26,13 @@ export default {
     selected: false,
   }),
   components: {
+    DragItDude,
     E,
+  },
+  methods: {
+    handleActivated() {},
+    handleDragging() {},
+    handleDropped() {},
   },
 };
 </script>
@@ -32,6 +45,7 @@ body {
   /* background: lightgray; */
 }
 #app {
+  position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
