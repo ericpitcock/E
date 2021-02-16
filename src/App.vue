@@ -7,7 +7,7 @@
     >
       <div
         :class="['bounding-box', { 'bounding-box--selected': selected }]"
-        @click="selected = !selected"
+        v-click-outside="onClickOutside"
       >
         <e :outline="true" v-if="selected" />
         <e :outline="false" />
@@ -17,24 +17,33 @@
 </template>
 
 <script>
-import DragItDude from "vue-drag-it-dude";
-import E from "@/components/E";
+import DragItDude from 'vue-drag-it-dude'
+import vClickOutside from 'v-click-outside'
+import E from '@/components/E'
 
 export default {
-  name: "App",
+  name: 'App',
   data: () => ({
-    selected: false,
+    selected: false
   }),
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
   components: {
     DragItDude,
-    E,
+    E
   },
   methods: {
-    handleActivated() {},
+    handleActivated() {
+      this.selected = true
+    },
     handleDragging() {},
     handleDropped() {},
-  },
-};
+    onClickOutside() {
+      this.selected = false
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -42,7 +51,6 @@ $blue: #4f80ff;
 
 body {
   margin: 0;
-  /* background: lightgray; */
 }
 #app {
   position: relative;
