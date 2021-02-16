@@ -12,7 +12,6 @@
     xml:space="preserve"
     :class="{ outline }"
   >
-    <!-- <defs></defs> -->
     <polygon
       :class="['st0', { 'st0--outline': outline }]"
       points="155.8,72.1 112,52.9 56.6,100.8 93.8,114.2"
