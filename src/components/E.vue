@@ -32,53 +32,53 @@
 </template>
 
 <script>
-export default {
-  name: "E",
-  props: {
-    outline: {
-      type: Boolean,
-      default: false,
-    },
-  },
-};
+  export default {
+    name: 'E',
+    props: {
+      outline: {
+        type: Boolean,
+        default: false
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
-$gold: #F99D1C;
-$yellow: #FDB913;
-$gray: #414141;
-$white: #fff;
+  $gold: #f99d1c;
+  $yellow: #fdb913;
+  $gray: #414141;
+  $white: #fff;
 
-svg {
-  display: block;
-  // scales with container
-  width: 100%;
-  height: auto;
-}
-polygon,
-path {
-  stroke: $white;
-  stroke-width: 3;
-  stroke-linejoin: round;
-  stroke-miterlimit: 5;
-}
-.shadow {
-  fill: $gray;
-}
-.highlight {
-  fill: $yellow;
-}
-.face {
-  fill: $gold;
-}
-svg.outline {
-  position: absolute;
-  .shadow,
-  .highlight,
-  .face {
-    fill: none;
-    stroke: #4f80ff;
-    stroke-width: 1;
+  svg {
+    display: block;
+    // scales with container
+    width: 100%;
+    height: auto;
   }
-}
+  polygon,
+  path {
+    stroke: $white;
+    stroke-width: 3;
+    stroke-linejoin: round;
+    stroke-miterlimit: 5;
+  }
+  .shadow {
+    fill: $gray;
+  }
+  .highlight {
+    fill: $yellow;
+  }
+  .face {
+    fill: $gold;
+  }
+  svg.outline {
+    position: absolute;
+    .shadow,
+    .highlight,
+    .face {
+      fill: none;
+      stroke: #4f80ff;
+      stroke-width: 1;
+    }
+  }
 </style>
